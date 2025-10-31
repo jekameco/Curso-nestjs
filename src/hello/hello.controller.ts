@@ -1,11 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
-import { get } from 'http';
+import { Controller, Get, Req, Res } from '@nestjs/common';
+import type { Request, Response } from 'express';
 
-@Controller('hello')
+@Controller({})
 export class HelloController {
+	@Get('/hello')
+	index(@Req() request: Request, @Res() response: Response) {
+		console.log(request.url);
 
-	@Get('/')
-	index() {
-		return 'home page';
+		response.status(200).json({
+			message: 'Hello World!',
+		});
 	}
 }
