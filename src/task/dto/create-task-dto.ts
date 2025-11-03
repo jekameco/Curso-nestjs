@@ -1,4 +1,10 @@
-export interface CreateTaskDto {
-	title: string;
-	status: string;
+import {
+    IsString
+} from 'class-validator';
+
+export class CreateTaskDto {
+	@IsString()
+    title: string;
+    @IsString()
+    status: string;
 }
