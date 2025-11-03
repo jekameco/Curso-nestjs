@@ -18,7 +18,11 @@ export class UsersService {
 	}
 
 	createUser(user: CreateUserDto){
+		this.users.push({
+			...user,
+			id: this.users.length + 1,
+		});
 		console.log('User created');
-		return "my name is jhon doe";
+		return {...user,id: this.users.length+1};
 	}
 }
